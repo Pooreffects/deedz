@@ -1,0 +1,25 @@
+{
+  "name": "deedz-monorepo",
+  "version": "1.0.0",
+  "description": "Architectural shell for the deeDZ ecosystem. A high-performance Turborepo orchestrating premium SaaS assets and the Product Architect portfolio.",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "keywords": [
+    "product-architecture",
+    "saas-starter-kit",
+    "monorepo",
+    "deedz",
+    "dz-tech"
+  ],
+  "author": "Mohamed Benabdellah",
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^2.8.3"
+  }
+}
