@@ -1,20 +1,13 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono, Geist } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 import './globals.css';
 
-/**
- * DEEDZ Typography Engine
- * Self-hosted via Next.js for zero-CLS and high performance.
- */
 const fontSans = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const fontHeading = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
   display: 'swap',
 });
 
@@ -24,43 +17,24 @@ const fontMono = JetBrains_Mono({
   display: 'swap',
 });
 
-/**
- * Marketable Metadata Strategy
- * Positioned as a Product Architect's HQ and a System Foundry.
- */
+const fontHeading = localFont({
+  src: '../../public/fonts/GeistVF.woff2',
+  variable: '--font-geist',
+  display: 'swap',
+  weight: '100 900',
+});
+
 export const metadata: Metadata = {
-  title: {
-    default: 'DEEDZ | Product Architect & High-Performance Systems',
-    template: '%s | DEEDZ',
-  },
-  description:
-    'Orchestrating premium frontend systems and productized assets. We build the digital engines that power scalable startups and high-impact solutions.',
-  metadataBase: new URL('https://deedz.tech'), // Update when you have your domain
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'DEEDZ | Product Architect',
-    description: 'Building the digital engines for high-impact solutions.',
-    url: 'https://deedz.tech',
-    siteName: 'DEEDZ',
-    locale: 'en_US',
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: 'DEEDZ | Product Architect',
+  description: 'High-performance digital systems and productized assets.',
+  metadataBase: new URL('https://deedz.tech'),
 };
 
-/**
- * Viewport Strategy
- * Ensures the Midnight theme is respected at the browser level (mobile status bars, etc.)
- */
 export const viewport: Viewport = {
-  themeColor: '#0a0a0b',
+  themeColor: '#030712',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -71,15 +45,16 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`dark ${fontSans.variable} ${fontHeading.variable} ${fontMono.variable}`}
-      suppressHydrationWarning // Prevents browser extension-induced hydration mismatch
+      className={`dark scroll-smooth ${fontSans.variable} ${fontHeading.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
     >
-      <body className='bg-midnight text-slate-200 font-sans antialiased selection:bg-slate-800 selection:text-white'>
-        {/* This is the core shell. 
-            In the future, common elements like Global Modals or Shared Nav 
-            from @deedz/ui will wrap {children} here.
-        */}
-        <div className='relative min-h-screen flex flex-col'>{children}</div>
+      <body className='antialiased selection:bg-accent/20 selection:text-white'>
+        {/* Simple single-container structure for maximum FPS */}
+        <div className='flex flex-col min-h-screen'>
+          <Navbar />
+          <main className='flex-1'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

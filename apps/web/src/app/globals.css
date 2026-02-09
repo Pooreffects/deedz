@@ -1,53 +1,32 @@
 @import 'tailwindcss';
 
 @theme {
-  /* --- Typography Roots --- */
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-geist);
-  --font-mono: var(--font-mono);
-
-  /* --- The DEEDZ Palette --- */
-  --color-midnight: #0a0a0b;
-  --color-slate-950: #0f172a;
-  --color-brand-primary: var(--color-slate-200);
-  --color-brand-muted: var(--color-slate-500);
-
-  /* --- Animations & Easing --- */
+  --color-midnight: #030712;
+  --color-surface: #0f172a;
+  --color-brand-primary: #f8fafc;
+  --color-brand-muted: #64748b;
+  --color-accent: #22d3ee;
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
 }
 
-/* --- Base Layer & Reset --- */
 @layer base {
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   :root {
     --background: var(--color-midnight);
-    --foreground: var(--color-slate-200);
-    --sb-track: var(--color-midnight);
-    --sb-thumb: var(--color-slate-800);
-
-    /* Next.js Isolation */
-    isolation: isolate;
+    --foreground: var(--color-brand-primary);
   }
 
   html,
   body {
-    height: 100%;
-    background: var(--background);
+    min-height: 100dvh;
+    background-color: var(--background);
     color: var(--foreground);
-    line-height: 1.5;
-    font-family: var(--font-sans);
+    /* Blocks unnecessary layout recalculations during scroll */
+    contain: content;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Heading Reset with Geist Sans */
+  /* Heading Reset for Architectural Spacing */
   h1,
   h2,
   h3,
@@ -56,80 +35,21 @@
   h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    letter-spacing: -0.02em;
-    overflow-wrap: break-word;
-  }
-
-  p {
-    overflow-wrap: break-word;
-  }
-
-  /* Media Reset */
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Form & Interactive Reset */
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-    /* Tailwind v4 removes default borders, we ensure clean interaction here */
-    border: none;
-    outline: none;
-    background: transparent;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  /* System Code Reset */
-  code,
-  pre {
-    font-family: var(--font-mono);
+    letter-spacing: -0.04em;
+    line-height: 1.1;
   }
 }
 
-/* --- DEEDZ System Utilities --- */
 @layer utilities {
-  /* Scrollbar Orchestration */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--sb-track);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb);
-    border-radius: 10px;
-    border: 2px solid var(--sb-track);
-    transition: background 0.3s var(--ease-fluid);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-brand-muted);
-  }
-
-  /* The DEEDZ Glass (Optimized for Midnight background) */
+  /* Simplified UI Elements */
   .glass {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(3, 7, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  /* Layout Utility */
-  .center-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Use this for clean, solid bento boxes */
+  .surface {
+    background: #0a0f1d;
+    border: 1px solid rgba(255, 255, 255, 0.03);
   }
 }

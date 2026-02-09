@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Architectural shell for the deeDZ ecosystem. A high-performance Turborepo orchestrating premium SaaS assets and the Product Architect portfolio.",
   "private": true,
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
