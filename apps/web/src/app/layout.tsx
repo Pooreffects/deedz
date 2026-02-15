@@ -20,8 +20,9 @@ const fontMono = JetBrains_Mono({
 const fontHeading = localFont({
   src: '../../public/fonts/GeistVF.woff2',
   variable: '--font-geist',
-  display: 'swap',
+  display: 'block', // 'block' is better for LCP as it hides fallback-to-custom layout shifts
   weight: '100 900',
+  preload: true, // Critical
 });
 
 export const metadata: Metadata = {
@@ -31,10 +32,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#030712',
+  themeColor: '#020617',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -48,8 +48,7 @@ export default function RootLayout({
       className={`dark scroll-smooth ${fontSans.variable} ${fontHeading.variable} ${fontMono.variable}`}
       suppressHydrationWarning
     >
-      <body className='antialiased selection:bg-accent/20 selection:text-white'>
-        {/* Simple single-container structure for maximum FPS */}
+      <body className='antialiased selection:bg-accent/20 selection:text-white bg-bg text-fg'>
         <div className='flex flex-col min-h-screen'>
           <Navbar />
           <main className='flex-1'>{children}</main>
