@@ -100,11 +100,11 @@
 }
 
 @layer utilities {
-  /* Less blur, more solid structural feel */
-  .glass {
-    background: color-mix(in srgb, var(--bg), transparent 20%);
-    backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, var(--fg), transparent 90%);
+  .glass-panel {
+    background: color-mix(in srgb, var(--surface), transparent 40%);
+    backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid color-mix(in srgb, var(--fg), transparent 92%);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
   }
 
   /*  Solid, heavy lifting containers */

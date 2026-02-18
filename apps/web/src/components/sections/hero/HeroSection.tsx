@@ -47,7 +47,10 @@ export function HeroSection() {
   const title = 'deedz';
 
   return (
-    <section className='relative min-h-dvh w-full flex flex-col items-center justify-center bg-bg overflow-hidden text-center pt-32 pb-20 md:pt-40'>
+    <section
+      id='hero'
+      className='relative min-h-dvh w-full flex flex-col items-center justify-center bg-bg overflow-hidden text-center pt-32 pb-20 md:pt-40'
+    >
       <h1 className='sr-only'>DEEDZ. Product Architecture & Venture Lab</h1>
       <div className='container relative z-20 mx-auto px-6 flex flex-col items-center mt-auto mb-auto'>
         {/* THE HEADING */}
